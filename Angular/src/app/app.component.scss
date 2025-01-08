@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#front_card {
+  position: absolute;
+  top: 11em;
+  left: 15em;
+  font-family: "Space Grotesk", serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+  margin: 1em 0 0.3em 
+}
+
+#back_card {
+  position: absolute;
+  top: 28em;
+  left: 23em;
+}
+
+#card_logo {
+  position: absolute;
+  top:13em;
+  left: 16em;
+}
+
+#number_card {
+  position: absolute;
+  top: 7.5em;
+  left: 6.4em;
+
+  font-family: "Space Grotesk", serif;
+  text-transform: uppercase;
+  font-size: 37px;
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+  margin: 1em 0 0.3em 
+}
+
+.box_card_nome_data{
+  display: flex;
+  justify-content: row;
+  position: absolute;
+  width: 100em;
+  top: 24em;
+  left: 16em;
+
+  font-family: "Space Grotesk", serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+  margin: 1em 0 0.3em 
+}
+
+#card_date {
+  margin-left: 16.5em;
+}
+
+#codigo_card{
+  position: absolute;
+  top:36.2em;
+  left: 49em;
+  
+  font-family: "Space Grotesk", serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+  margin: 1em 0 0.3em 
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.box_left {
+  background-image: url("./images/bg-main-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30%;
+  height: 100%;
+}
+
+.box_right {
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}

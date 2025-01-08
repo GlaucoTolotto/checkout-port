@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.box_form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+label {
+  font-family: "Space Grotesk", serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: hsl(278, 68%, 11%);
+  font-weight: 500;
+  margin: 1em 0 0.3em 0;
+}
+
+input {
+  font-family: "Space Grotesk", serif;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  border: 0.4px solid hsl(270, 3%, 87%);
+  color: hsl(270, 3%, 87%);
+  font-weight: 500;
+  font-size: 15px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input:focus {
+  border: 0.4px solid hsl(278, 68%, 11%);
+}
+
+::placeholder {
+  font-family: "Space Grotesk", serif;
+  color: hsl(270, 3%, 87%);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.box_data_codigo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.formata-texto-data-codigo {
+  display: flex;
+  flex-direction: column;
+}
+
+#box_Exp_date {
+  width: 20%;
+  margin-right: 0.7em;
+}
+
+#box_MM_YY {
+  width: 20%;
+  margin-right: 1.5em;
+}
+
+#box_CVC {
+  width: 60%;
+
+}
+
+button {
+  font-family: "Space Grotesk", serif;
+  margin-top: 1.8em;
+  padding: 0.8em;
+  color:hsl(270, 3%, 87%);
+  background-color: hsl(278, 68%, 11%);
+  border-radius: 0.5em;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
