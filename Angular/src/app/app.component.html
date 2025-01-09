@@ -37,7 +37,78 @@
       <p id="codigo_card">000</p>
       <div class="box_left"></div>
       <div class="box_right">
-        <app-form></app-form>
+        <form class="box_form" [formGroup]="form" (ngSubmit)="confirmar()">
+          <label for="">Cardholder Name</label>
+          <input
+            formControlName="cardholderName"
+            placeholder="e.g. Jane Appleseed"
+            type="text"
+          />
+          @if(validaPreenchimento('cardholderName')){
+          <small style="color: hsl(0, 100%, 66%)"
+            >Obrigatorio o preenchimento do nome</small
+          >
+          }
+          <label for="">Card Number</label>
+          <input
+            formControlName="cardNumber"
+            placeholder="e.g. 1234 5678 9123 0000"
+            type="number"
+          />
+          @if(validaPreenchimento('cardNumber')){
+          <small>Can't be blank</small>
+          }
+        
+          <div class="box_data_codigo">
+            <div class="formata-texto-data-codigo" id="box_Exp_date">
+              <label for="">Exp. Date</label>
+              <input
+                formControlName="mm"
+                placeholder="MM"
+                type="number"
+                maxlength="12"
+              />
+              @if(validaPreenchimento('mm')){
+              <small>Can't be blank</small>
+              }
+            </div>
+        
+            <div class="formata-texto-data-codigo" id="box_MM_YY">
+              <label for="">(MM/YY)</label>
+              <input
+                formControlName="yy"
+                placeholder="YY"
+                type="number"
+                maxlength="99"
+              />
+              @if(validaPreenchimento('yy')){
+              <small>Can't be blank</small>
+              }
+            </div>
+        
+            <div class="formata-texto-data-codigo" id="box_CVC">
+              <label for="">CVC</label>
+              <input formControlName="cvc" ma placeholder="e.g. 123" type="number" />
+              @if(validaPreenchimento('cvc')){
+              <small>Can't be blank</small>
+              }
+            </div>
+          </div>
+          <button type="submit">Confirm</button>
+        </form>
+        <!-- <div class="attribution">
+             
+        
+                Completed state start
+        
+                Thank you! We've added your card details Continue
+              </p>
+              Challenge by
+              <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+                >Frontend Mentor</a
+              >. Coded by <a href="#">Glauco Tolotto</a>.
+            </div> -->
+        
       </div>
     </div>
   </body>
