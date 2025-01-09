@@ -42,8 +42,21 @@ input {
   outline: none;
 }
 
+small {
+  font-family: "Space Grotesk", serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: hsl(0, 100%, 66%);
+  box-sizing: content-box;
+}
+
 input:focus {
   border: 0.4px solid hsl(278, 68%, 11%);
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 ::placeholder {
