@@ -1,102 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
+<div class="container">
+  <img src="assets\images\bg-card-front.png" alt="" id="front_card" />
+  <img src="assets\images\bg-card-back.png" alt="" id="back_card" />
+  <svg
+    id="card_logo"
+    width="84"
+    height="47"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff" />
+    <path
+      d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z"
+      stroke="#fff"
     />
-    <title>Frontend Mentor | Interactive card details form</title>
-  </head>
+  </svg>
+  <p id="number_card">{{ numeroCartao | mask : "0000 0000 0000 0000" }}</p>
+  <div class="box_card_nome_data">
+    <p>{{ nome_cartao }}</p>
+    <p id="card_date">{{mes_vencimento}}/{{ano_vencimento}}</p>
+  </div>
+  <p id="codigo_card">{{ cvc }}</p>
+  <div class="box_left"></div>
+  <div class="box_right">
+    <form class="box_form" [formGroup]="form" (ngSubmit)="confirmar()">
+      <label for="">Cardholder Name</label>
+      <input
+        (keypress)="onKeypressEventNomeCartao($event)"
+        formControlName="cardholderName"
+        placeholder="e.g. Jane Appleseed"
+        type="text"
+      />
+      @if(validaPreenchimento('cardholderName')){
+      <small>Obrigatorio o preenchimento do nome</small>
+      }
+      <label for="">Card Number</label>
+      <input
+        (keypress)="onKeypressEventNumeroCartao($event)"
+        formControlName="cardNumber"
+        placeholder="e.g. 1234 5678 9123 0000"
+        type="text"
+        mask="0000 0000 0000 0000"
+      />
+      @if(validaPreenchimento('cardNumber')){
+      <small>Can't be blank</small>
+      }
 
-  <body>
-    <div class="container">
-      <img src="assets\images\bg-card-front.png" alt="" id="front_card" />
-      <img src="assets\images\bg-card-back.png" alt="" id="back_card" />
-      <svg
-        id="card_logo"
-        width="84"
-        height="47"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff" />
-        <path
-          d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z"
-          stroke="#fff"
-        />
-      </svg>
-      <p id="number_card">0000 0000 0000 0000</p>
-      <div class="box_card_nome_data">
-        <p>Jane Appleseed</p>
-        <p id="card_date">00/00</p>
-      </div>
-      <p id="codigo_card">000</p>
-      <div class="box_left"></div>
-      <div class="box_right">
-        <form class="box_form" [formGroup]="form" (ngSubmit)="confirmar()">
-          <label for="">Cardholder Name</label>
+      <div class="box_data_codigo">
+        <div class="formata-texto-data-codigo" id="box_Exp_date">
+          <label for="">Exp. Date (MM/YY)</label>
           <input
-            formControlName="cardholderName"
-            placeholder="e.g. Jane Appleseed"
-            type="text"
-          />
-          @if(validaPreenchimento('cardholderName')){
-          <small style="color: hsl(0, 100%, 66%)"
-            >Obrigatorio o preenchimento do nome</small
-          >
-          }
-          <label for="">Card Number</label>
-          <input
-            formControlName="cardNumber"
-            placeholder="e.g. 1234 5678 9123 0000"
+            (keypress)="onKeypressEventMesVencimento($event)"
+            formControlName="mm"
+            placeholder="MM"
             type="number"
+            mask="00"
           />
-          @if(validaPreenchimento('cardNumber')){
+          @if(validaPreenchimento('mm')){
           <small>Can't be blank</small>
           }
-        
-          <div class="box_data_codigo">
-            <div class="formata-texto-data-codigo" id="box_Exp_date">
-              <label for="">Exp. Date</label>
-              <input
-                formControlName="mm"
-                placeholder="MM"
-                type="number"
-                maxlength="12"
-              />
-              @if(validaPreenchimento('mm')){
-              <small>Can't be blank</small>
-              }
-            </div>
-        
-            <div class="formata-texto-data-codigo" id="box_MM_YY">
-              <label for="">(MM/YY)</label>
-              <input
-                formControlName="yy"
-                placeholder="YY"
-                type="number"
-                maxlength="99"
-              />
-              @if(validaPreenchimento('yy')){
-              <small>Can't be blank</small>
-              }
-            </div>
-        
-            <div class="formata-texto-data-codigo" id="box_CVC">
-              <label for="">CVC</label>
-              <input formControlName="cvc" ma placeholder="e.g. 123" type="number" />
-              @if(validaPreenchimento('cvc')){
-              <small>Can't be blank</small>
-              }
-            </div>
-          </div>
-          <button type="submit">Confirm</button>
-        </form>
-        <!-- <div class="attribution">
+        </div>
+
+        <div class="formata-texto-data-codigo" id="box_MM_YY">
+          <input
+            (keypress)="onKeypressEventAnoVencimento($event)"
+            formControlName="yy"
+            placeholder="YY"
+            type="number"
+            mask="00"
+          />
+          @if(validaPreenchimento('yy')){
+          <small>Can't be blank</small>
+          }
+        </div>
+
+        <div class="formata-texto-data-codigo" id="box_CVC">
+          <label for="">CVC</label>
+          <input
+            (keypress)="onKeypressEventCVC($event)"
+            formControlName="cvc"
+            mask="000"
+            placeholder="e.g. 123"
+            type="number"
+          />
+          @if(validaPreenchimento('cvc')){
+          <small>Can't be blank</small>
+          }
+        </div>
+      </div>
+      <button type="submit">Confirm</button>
+    </form>
+    <!-- <div class="attribution">
              
         
                 Completed state start
@@ -108,8 +101,5 @@
                 >Frontend Mentor</a
               >. Coded by <a href="#">Glauco Tolotto</a>.
             </div> -->
-        
-      </div>
-    </div>
-  </body>
-</html>
+  </div>
+</div>
