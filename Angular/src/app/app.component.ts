@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
-import {
-  FormGroup,
-  NonNullableFormBuilder,
-  Validators,
-} from '@angular/forms';
+import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { AppModule } from './app.module';
-import {
-
-  provideNgxMask,
-} from 'ngx-mask';
+import { provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +19,7 @@ export class AppComponent {
   mesVencimento = '00';
   anoVencimento = '00';
   form!: FormGroup;
+  submeteu = false;
 
   constructor(private formBuilder: NonNullableFormBuilder) {
     this.form = this.criaForm();
@@ -35,6 +29,7 @@ export class AppComponent {
     if (!this.validaControls()) {
       return;
     }
+    this.submeteu = true;
   }
 
   validaControls() {
@@ -76,6 +71,10 @@ export class AppComponent {
   }
   onKeypressEventCVC(event: any) {
     this.cvc = event.target.value;
+  }
+
+  continuar() {
+    this.submeteu = !this.submeteu;
   }
 
   private criaForm(): FormGroup {
