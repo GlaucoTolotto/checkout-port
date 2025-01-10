@@ -1,36 +1,30 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ComponentsModule } from './components/components.module';
 import {
   FormGroup,
-  FormsModule,
   NonNullableFormBuilder,
-  ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { AppModule } from './app.module';
 import {
-  NgxMaskDirective,
-  NgxMaskPipe,
-  NgxMaskService,
+
   provideNgxMask,
 } from 'ngx-mask';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AppModule, NgxMaskDirective, NgxMaskPipe],
+  imports: [AppModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [provideNgxMask()],
 })
 export class AppComponent {
   title = 'Angular';
-  nome_cartao = 'Jane Appleseed';
+  nomeCartao = 'Jane Appleseed';
   numeroCartao = '0000 0000 0000 0000';
   cvc = '000';
-  mes_vencimento = '00';
-  ano_vencimento = '00';
+  mesVencimento = '00';
+  anoVencimento = '00';
   form!: FormGroup;
 
   constructor(private formBuilder: NonNullableFormBuilder) {
@@ -72,13 +66,13 @@ export class AppComponent {
   }
 
   onKeypressEventNomeCartao(event: any) {
-    this.nome_cartao = event.target.value;
+    this.nomeCartao = event.target.value;
   }
   onKeypressEventMesVencimento(event: any) {
-    this.cvc = event.target.value;
+    this.mesVencimento = event.target.value;
   }
   onKeypressEventAnoVencimento(event: any) {
-    this.nome_cartao = event.target.value;
+    this.anoVencimento = event.target.value;
   }
   onKeypressEventCVC(event: any) {
     this.cvc = event.target.value;

@@ -4,6 +4,7 @@ import { ComponentsModule } from './components/components.module';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -12,6 +13,8 @@ import { AppComponent } from './app.component';
     ComponentsModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
   exports: [
     ComponentsModule,
@@ -20,6 +23,8 @@ import { AppComponent } from './app.component';
     ComponentsModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
   bootstrap: [AppComponent],
 })
