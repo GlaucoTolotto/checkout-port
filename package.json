@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod":  "ng build --configuration production --base-href https://glaucotolotto.github.io/checkout-page/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:Angular": "node dist/angular/server/server.mjs"
